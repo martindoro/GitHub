@@ -16,17 +16,19 @@ public class MouseComponent extends JPanel {
 	private static final int DEFAULT_HEIGHT = 500;
 
 	public MouseComponent() {
-		setOpaque(true);
 		addMouseListener(new MouseHandler());
 		addMouseMotionListener(new MouseMotionHandler());
 	}
 
 	@Override
 	public void paintComponent(Graphics g) {
-		g.setColor(getBackground());
-		g.fillRect(0, 0, getWidth(), getHeight());
-		g.setColor(getForeground());
 		super.paintComponent(g);
+		String red = ("R " + getBackground().getRed());
+		String green = ("G " + getBackground().getGreen());
+		String blue = ("B " + getBackground().getBlue());
+		g.drawString(red, 10, 50);
+		g.drawString(green, 10, 70);
+		g.drawString(blue, 10, 90);
 	}
 
 	@Override
