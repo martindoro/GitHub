@@ -16,7 +16,7 @@ public class MouseComponent extends JPanel {
 	private static final int DEFAULT_HEIGHT = 500;
 
 	public MouseComponent() {
-		addMouseListener(new MouseHandler());
+		addMouseWheelListener(new MouseHandler());
 		addMouseMotionListener(new MouseMotionHandler());
 	}
 
@@ -43,7 +43,7 @@ public class MouseComponent extends JPanel {
 			int rotation = event.getWheelRotation();
 			int red = getBackground().getRed();
 			int green = getBackground().getGreen();
-			int blue = (getBackground().getBlue() + rotation);
+			int blue = (getBackground().getBlue() + rotation * 10);
 			if (blue > 255) {
 				blue = 255;
 			}
